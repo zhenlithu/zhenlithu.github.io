@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhen Li's Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #5a5a5a;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 0;
+            color: #5a5a5a;
+            text-decoration: none;
+            transition: color 0.3s;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:hover {
+            color: #007bff;
+        }
+
+        .contact-item i {
+            width: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* Content Section */
+        .content {
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .subsection-title {
+            font-size: 1.4rem;
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text a {
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #007bff;
+        }
+
+        .research-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid #667eea;
+        }
+
+        .research-item h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .research-item p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .service-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-category h3 {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-list {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* Publication Styles */
+        .publications-list {
+            margin-top: 2rem;
+        }
+
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding: 0.8rem 1rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .pub-title {
+            font-size: 1.05rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .pub-title a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .pub-title a:hover {
+            color: #667eea;
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors .me {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 0.4rem;
+        }
+
+        .pub-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pub-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #777;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Zhen Li's Homepage</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="profile-section">
+                    <h1 class="name">Zhen Li (李振)</h1>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:thu.lz@outlook.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>thu.lz@outlook.com</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=E2Yv1YcAAAAJ&hl=en" target="_blank" class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Google Scholar</span>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content">
+                <section id="about" class="section">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="intro-text">
+                        Hi, I am Zhen Li (李振), a Ph.D. student at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>, 
+                        under the supervision of <a href="http://shixialiu.com/" target="_blank">Prof. Shixia Liu</a> and Prof. Hui Zhang.
+                    </p>
+                    <p class="intro-text">
+                        My research primarily focuses on the intersections between <span class="highlight">visual analysis and machine learning</span>. 
+                        Specifically, my work spans two complementary directions:
+                    </p>
+                    <p class="intro-text">
+                        <strong>VIS4AI</strong>: I develop visual analytics methods to explain and diagnose machine learning models with different architectures and their training data biases.
+                        Through interactive visualizations, I enable the effective identification and mitigation of both model and data issues, thereby enhancing model performance and fairness.
+                    </p>
+                    <p class="intro-text">
+                        <strong>AI4VIS</strong>: I develop large-scale datasets and leverage generative models to advance the automatic generation of infographic charts, which combine visual elements (such as charts and images) with textual information. My research focuses on bridging the gap between simple charts and complex, human-designed infographics, enabling large vision-language models (LVLMs) to automatically create and understand infographic charts.
+                    </p>
+                </section>
+
+                <section id="publications" class="section">
+                    <h2 class="section-title">Publications</h2>
+                    
+                    <div class="publications-list">
+                        <!-- 2025 -->
+                        <div class="publication-item">
+                            <div class="pub-title">ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation</div>
+                            <div class="pub-authors">
+                                <span class="me">Z Li</span>, D Li, Y Guo, X Guo, B Li, L Xiao, S Qiao, J Chen, Z Wu, H Zhang, et al.
+                            </div>
+                            <div class="pub-venue">arXiv preprint arXiv:2505.18668</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2025</span>
+                            </div>
+                        </div>
+
+                        <!-- 2025 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/10787151" target="_blank">
+                                    RuleExplorer: A Scalable Matrix Visualization for Understanding Tree Ensemble Classifiers
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <span class="me">Z Li</span>, W Yang, J Yuan, J Wu, C Chen, Y Ming, F Yang, H Zhang, S Liu
+                            </div>
+                            <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 31 (9), 6370-6384</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2024</span>
+                            </div>
+                        </div>
+
+                        <!-- 2022 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/9801603" target="_blank">
+                                    A Unified Understanding of Deep NLP Models for Text Classification
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                <span class="me">Z Li</span>, X Wang, W Yang, J Wu, Z Zhang, Z Liu, M Sun, H Zhang, S Liu
+                            </div>
+                            <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 28 (12), 4980-4994</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2022</span>
+                            </div>
+                        </div>
+
+                        <!-- 2020 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/9308631" target="_blank">
+                                    Diagnosing Concept Drift with Visual Analytics
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                W Yang, <span class="me">Z Li</span>, M Liu, Y Lu, K Cao, R Maciejewski, S Liu
+                            </div>
+                            <div class="pub-venue">2020 IEEE Conference on Visual Analytics Science and Technology (VAST), 12-23</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2020</span>
+                            </div>
+                        </div>
+
+                        <!-- 2019 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/8781568" target="_blank">
+                                    Designing Narrative Slideshows for Learning Analytics
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                Q Chen, <span class="me">Z Li</span>, TC Pong, H Qu
+                            </div>
+                            <div class="pub-venue">2019 IEEE Pacific Visualization Symposium (PacificVis), 237-246</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2019</span>
+                            </div>
+                        </div>
+
+                        <!-- 2018 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/8444072" target="_blank">
+                                    NarVis: Authoring Narrative Slideshows for Introducing Data Visualization Designs
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                Q Wang, <span class="me">Z Li</span>, S Fu, W Cui, H Qu
+                            </div>
+                            <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 25 (1), 779-788</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2018</span>
+                            </div>
+                        </div>
+
+                        <!-- 2017 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/8585721" target="_blank">
+                                    Understanding Hidden Memories of Recurrent Neural Networks
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                Y Ming, S Cao, R Zhang, <span class="me">Z Li</span>, Y Chen, Y Song, H Qu
+                            </div>
+                            <div class="pub-venue">2017 IEEE Conference on Visual Analytics Science and Technology (VAST), 13-24</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2017</span>
+                            </div>
+                        </div>
+
+                        <!-- 2016 -->
+                        <div class="publication-item">
+                            <div class="pub-title">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/7536654" target="_blank">
+                                    Towards Better Analysis of Deep Convolutional Neural Networks
+                                </a>
+                            </div>
+                            <div class="pub-authors">
+                                M Liu, J Shi, <span class="me">Z Li</span>, C Li, J Zhu, S Liu
+                            </div>
+                            <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 23 (1), 91-100</div>
+                            <div class="pub-meta">
+                                <span class="pub-year">2016</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="services" class="section">
+                    <h2 class="section-title">Academic Services</h2>
+                    
+                    <div class="service-category">
+                        <h3><i class="fas fa-journal-whills"></i> Journal Reviewer</h3>
+                        <p class="service-list">
+                            Information Visualization, Visual Informatics
+                        </p>
+                    </div>
+
+                    <div class="service-category">
+                        <h3><i class="fas fa-users"></i> Conference Reviewer</h3>
+                        <p class="service-list">
+                            IEEE VIS, PacificVis Journal Track, ChinaVis
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
+
