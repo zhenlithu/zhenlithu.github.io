@@ -167,6 +167,12 @@
             border-bottom-color: #007bff;
         }
 
+        .intro-text em {
+            font-style: normal;
+            font-weight: 600;
+            color: #555;
+        }
+
         .research-item {
             margin-bottom: 2rem;
             padding-left: 1.5rem;
@@ -299,6 +305,54 @@
             margin-bottom: 0.4rem;
         }
 
+        .pub-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .pub-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .stat-item:hover {
+            opacity: 0.7;
+        }
+
+        .stat-item i {
+            font-size: 1.1rem;
+        }
+
+        .stat-item.github i {
+            color: #181717;
+        }
+
+        .stat-item.huggingface i {
+            color: #FFD21E;
+        }
+
+        .stat-item .stat-number {
+            color: #667eea;
+            font-weight: 700;
+        }
+
         .pub-meta {
             display: flex;
             gap: 1rem;
@@ -406,23 +460,25 @@
                 <section id="about" class="section">
                     <h2 class="section-title">About Me</h2>
                     <p class="intro-text">
-                        Hi, I am Zhen Li (李振), a Ph.D. student at <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a>,
+                        Hi, I am Zhen Li (李振). I recently received my Ph.D. degree in Software Engineering from <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a> (Nov. 2025),
                         under the supervision of <a href="http://shixialiu.com/" target="_blank">Prof. Shixia Liu</a> and <a href="https://www.tsinghua.edu.cn/" target="_blank">Prof. Hui Zhang</a>.
                         Prior to that, I received my M.Phil. degree from the CSE Department at
-                        <a href="https://hkust.edu.hk/" target="_blank">HKUST</a>,
+                        <a href="https://hkust.edu.hk/" target="_blank">HKUST</a> (2018),
                         under the supervision of <a href="http://huamin.org/" target="_blank">Prof. Huamin Qu</a>.
-                        I obtained my Bachelor's degree from the Department of Computer Science at Tsinghua University.
+                        I obtained my Bachelor's degree from the Department of Computer Science at Tsinghua University (2016).
                     </p>
                     <p class="intro-text">
                         My research primarily focuses on the intersections between <span class="highlight">visual analysis and machine learning</span>. 
                         Specifically, my work spans two complementary directions:
                     </p>
                     <p class="intro-text">
-                        <strong>VIS4AI</strong>: I develop visual analytics methods to explain and diagnose machine learning models with different architectures and their training data biases.
-                        Through interactive visualizations, I enable the effective identification and mitigation of both model and data issues, thereby enhancing model performance and fairness.
+                        <strong>VIS4AI</strong>: I develop visual analytics methods for understanding machine learning models with different architectures and their training data biases.
+                        Through interactive visualizations, I enable effective identification and mitigation of both model representation issues and data biases, thereby enhancing model performance and fairness.
                     </p>
                     <p class="intro-text">
-                        <strong>AI4VIS</strong>: I develop large-scale datasets and leverage generative models to advance the automatic generation of infographic charts, which combine visual elements (such as charts and images) with textual information. My research focuses on bridging the gap between simple charts and complex, human-designed infographics, enabling large vision-language models (LVLMs) to automatically create and understand infographic charts.
+                        <strong>Intelligent Data Synthesis</strong>: I address the challenge that large model development is constrained by the scarcity of high-quality,
+                        domain-specific data, particularly for complex infographic charts where data is difficult and costly to obtain.
+                        I propose a synthesis framework that uses multi-agent collaboration and knowledge guidance to generate high-quality data at scale.
                     </p>
                 </section>
 
@@ -437,13 +493,52 @@
                             </div>
                             <div class="pub-content">
                                 <div class="pub-header">
-                                    <div class="pub-title">ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation</div>
+                                    <div class="pub-title">
+                                        <a href="https://arxiv.org/abs/2505.18668" target="_blank">
+                                            ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation
+                                        </a>
+                                    </div>
                                     <span class="pub-badge">Under Review</span>
                                 </div>
                                 <div class="pub-authors">
                                     <span class="me">Zhen Li</span>, Duan Li, Yukai Guo, Xinyuan Guo, Bowen Li, Lanxi Xiao, Shenyu Qiao, Jiashu Chen, Zijian Wu, Hui Zhang, Xinhuan Shu, Shixia Liu
                                 </div>
                                 <div class="pub-venue">arXiv preprint arXiv:2505.18668 (Submitted to ICLR 2026)</div>
+                                <div class="pub-description">
+                                    By generalizing chart types, variants, and layout templates, we synthesize high-quality infographic data in a programmatic manner, 
+                                    which enhances multimodal models' capabilities. The dataset has gained widespread attention in the open-source community:
+                                    <div class="pub-stats">
+                                        <a href="https://github.com/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item github">
+                                            <i class="fab fa-github"></i>
+                                            <span class="stat-number">228</span>
+                                            <span>Stars</span>
+                                        </a>
+                                        <a href="https://huggingface.co/datasets/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item huggingface">
+                                            <i class="fas fa-face-smile"></i>
+                                            <span class="stat-number">8,500+</span>
+                                            <span>Downloads</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2026 -->
+                        <div class="publication-item">
+                            <div class="pub-thumbnail">
+                                <img src="images/biasfield.png" alt="BiasField">
+                            </div>
+                            <div class="pub-content">
+                                <div class="pub-header">
+                                    <div class="pub-title">
+                                        BiasField: Interactive Bias Probing of Machine Learning Datasets
+                                    </div>
+                                    <span class="pub-badge">TVCG 2026</span>
+                                </div>
+                                <div class="pub-authors">
+                                    <span class="me">Zhen Li</span>, Weikai Yang, Xinhuan Shu, Jiangning Zhu, Hui Zhang, Shixia Liu
+                                </div>
+                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics (Conditionally accepted by PacificVis 2026 Journal Track)</div>
                             </div>
                         </div>
 
@@ -609,7 +704,7 @@
                     <div class="service-category">
                         <h3><i class="fas fa-users"></i> Conference Reviewer</h3>
                         <p class="service-list">
-                            IEEE VIS, PacificVis Journal Track, ChinaVis
+                            IEEE VIS, ACM IUI, IEEE PacificVis (Regular and TVCG-Journal Track), ChinaVis
                         </p>
                     </div>
                 </section>
