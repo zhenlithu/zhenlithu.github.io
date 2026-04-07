@@ -5,238 +5,405 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhen Li's Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
+        :root {
+            --bg: #fff8f3;
+            --surface: #ffffff;
+            --surface-2: #fff7ef;
+            --text: #2a2a2a;
+            --muted: #666a73;
+            --primary: #F97316;
+            --primary-soft: #fff1e7;
+            --border: #f2dfd0;
+            --shadow: 0 4px 12px rgba(185, 75, 11, 0.08);
+            --radius: 16px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            line-height: 1.64;
+            color: var(--text);
+            background: var(--bg);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header Styles */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
+        .top-bars {
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1002;
+        }
+
+        .top-bars .bar-1 {
+            height: 8px;
+            background: #ea580c;
+        }
+
+        .top-bars .bar-2 {
+            height: 8px;
+            background: #fff7ed;
+        }
+
+        header {
+            position: sticky;
+            top: 16px;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.95rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #5a5a5a;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2e3138;
+            letter-spacing: 0.01em;
+            font-family: "Alegreya", Georgia, "Times New Roman", serif;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.2rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #5a5a5a;
-            font-size: 1.1rem;
-            transition: color 0.3s;
+            color: var(--muted);
+            font-size: 0.96rem;
+            font-weight: 500;
+            padding: 0.45rem 0.75rem;
+            border-radius: 999px;
+            transition: all 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: #007bff;
+            color: var(--primary);
+            background: var(--primary-soft);
         }
 
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        .profile-section {
-            text-align: center;
-        }
-
-
-        .name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            margin-top: 2rem;
-        }
-
-        .contact-item {
+        .profile-header {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 0;
-            color: #5a5a5a;
+            gap: 2rem;
+            padding: 2.5rem 0 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.8rem;
+        }
+
+        .profile-avatar {
+            flex-shrink: 0;
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #f8d9bf;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .profile-name {
+            font-size: 1.95rem;
+            font-weight: 400;
+            color: #2a2e38;
+            margin-bottom: 0.28rem;
+            font-family: "Alegreya", Georgia, "Times New Roman", serif;
+            line-height: 1.2;
+        }
+
+        .profile-name strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .name-cn {
+            font-size: 1.1rem;
+            color: #8a9ab5;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .profile-subtitle {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 0.22rem;
+        }
+
+        .profile-subtitle a {
+            color: #4a5568;
             text-decoration: none;
-            transition: color 0.3s;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dotted #a4aab5;
         }
 
-        .contact-item:hover {
-            color: #007bff;
+        .profile-subtitle a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        .contact-item i {
-            width: 20px;
-            font-size: 1.2rem;
+        .profile-areas {
+            font-size: 0.93rem;
+            color: #6a7487;
+            margin-bottom: 0.7rem;
         }
 
-        /* Content Section */
+        .profile-links {
+            display: flex;
+            gap: 0.45rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #fff0e4;
+            border: 1px solid #f8d9bf;
+            color: #c2410c;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: all 0.2s;
+        }
+
+        .profile-link:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
         .content {
-            background-color: #fff;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: transparent;
+            margin-bottom: 2.5rem;
         }
 
         .section {
-            margin-bottom: 3rem;
+            background: var(--surface);
+            margin-bottom: 1.4rem;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .hero {
+            background: linear-gradient(160deg, #fff8f2 0%, #fff2e8 100%);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            line-height: 1.25;
+            margin-bottom: 0.9rem;
+            color: #2b2b2b;
+            font-family: "Alegreya", Georgia, "Times New Roman", serif;
+        }
+
+        .hero p {
+            font-size: 1.04rem;
+            color: #555a63;
+            max-width: 840px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.2rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 0.56rem 0.9rem;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .button.primary {
+            color: #fff;
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .button.primary:hover {
+            background: #ea580c;
+        }
+
+        .button.ghost {
+            color: var(--primary);
+            background: var(--primary-soft);
+            border-color: #f7d6ba;
+        }
+
+        .button.ghost:hover {
+            background: #ffe5d1;
+        }
+
+        .section-title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.55rem;
+            margin-bottom: 1.1rem;
         }
 
         .section-title {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
+            font-size: 1.55rem;
+            color: #2b2e35;
+            margin-bottom: 1.1rem;
+            font-weight: 700;
+            font-family: "Alegreya", Georgia, "Times New Roman", serif;
             display: inline-block;
+            position: relative;
+            z-index: 0;
         }
 
-        .subsection-title {
-            font-size: 1.4rem;
-            color: #333;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .section-title-row .section-title {
+            margin-bottom: 0;
+        }
+
+        .pub-toggle-btn {
+            font-size: 0.85rem;
+            color: #8a9ab5;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: color 0.2s;
+        }
+
+        .pub-toggle-btn:hover {
+            color: var(--primary);
+        }
+
+        .pub-other {
+            display: flex;
+        }
+
+        #pubToggleBtn {
+            display: none;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0.18rem;
+            height: 0.5em;
+            background: #ffe1c7;
+            border-radius: 0.5em;
+            z-index: -1;
         }
 
         .intro-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+            color: #3e4b61;
+            margin-bottom: 1rem;
+            font-family: "Roboto", sans-serif;
         }
 
         .intro-text a {
-            color: #007bff;
+            color: #404551;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+            border-bottom: 1px dotted #a4aab5;
         }
 
         .intro-text a:hover {
-            border-bottom-color: #007bff;
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        .intro-text em {
-            font-style: normal;
-            font-weight: 600;
-            color: #555;
+        .intro-text strong,
+        .chinese-intro strong {
+            color: var(--primary);
+            font-weight: 700;
         }
 
-        .research-item {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid #667eea;
-        }
-
-        .research-item h3 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 0.8rem;
-        }
-
-        .research-item p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #555;
-            text-align: justify;
-        }
-
-        .service-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .service-category h3 {
-            font-size: 1.05rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-list {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.8;
+        .chinese-intro {
+            font-size: 0.98rem;
+            color: #41506a;
+            margin-bottom: 1rem;
+            font-family: "Roboto", sans-serif;
         }
 
         .highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
+            color: var(--primary);
+            font-weight: 700;
         }
 
-        /* Publication Styles */
         .publications-list {
-            margin-top: 2rem;
+            margin-top: 0.6rem;
         }
 
         .publication-item {
-            margin-bottom: 1.5rem;
-            padding: 0.8rem 1rem;
-            background: #f9f9f9;
-            border-radius: 6px;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: #fffdfa;
+            border: 1px solid #f2dfd0;
+            border-radius: 12px;
             display: flex;
             gap: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .publication-item:hover {
+            border-color: #efcdb2;
         }
 
         .pub-thumbnail {
             flex-shrink: 0;
-            width: 180px;
-            height: 120px;
+            width: 175px;
+            height: 118px;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 8px;
             background: #fff;
+            border: 1px solid #f2dfd0;
         }
 
         .pub-thumbnail img {
@@ -250,94 +417,137 @@
             min-width: 0;
         }
 
-        .pub-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
-        }
-
         .pub-badge {
             flex-shrink: 0;
-            padding: 0.15rem 0.5rem;
-            background: #667eea;
-            color: white;
-            border-radius: 3px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            padding: 0.18rem 0.52rem;
+            background: #ffe4d0;
+            color: #c2410c;
+            border-radius: 999px;
+            font-size: 0.73rem;
+            font-weight: 700;
             white-space: nowrap;
         }
 
         .pub-title {
-            font-size: 1.05rem;
-            color: #333;
-            font-weight: 600;
-            line-height: 1.3;
+            font-size: 1.04rem;
+            color: #303643;
+            font-weight: 700;
+            line-height: 1.35;
             flex: 1;
         }
 
         .pub-title a {
-            color: #333;
+            color: var(--primary);
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         .pub-title a:hover {
-            color: #667eea;
+            color: #ea580c;
         }
 
         .pub-authors {
             font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.3rem;
-            line-height: 1.4;
+            color: #59657a;
+            margin-bottom: 0.25rem;
+            line-height: 1.45;
         }
 
         .pub-authors .me {
-            font-weight: 600;
-            color: #667eea;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .pub-venue-line {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
         }
 
         .pub-venue {
             font-size: 0.85rem;
-            color: #777;
+            color: #6a7487;
             font-style: italic;
-            margin-bottom: 0.4rem;
         }
 
         .pub-description {
             font-size: 0.9rem;
-            color: #666;
+            color: #5a667d;
             line-height: 1.6;
-            margin-top: 0.5rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid #eee;
+            margin-top: 0.45rem;
+            padding-top: 0.45rem;
+            border-top: 1px solid #e2e9f7;
         }
 
-        .pub-stats {
+        .pub-links {
+            margin-top: 0.55rem;
             display: flex;
-            gap: 1.5rem;
-            margin-top: 0.6rem;
+            align-items: center;
+            font-size: 0.88rem;
+            color: #9aa5b8;
             flex-wrap: wrap;
+        }
+
+        .pub-links-bracket {
+            color: #9aa5b8;
+        }
+
+        .pub-links-sep {
+            color: #9aa5b8;
+            margin: 0 0.35rem;
+        }
+
+        .pub-link-item {
+            color: #4a5a72;
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.22rem;
+            transition: color 0.2s;
+        }
+
+        .pub-link-item:hover {
+            color: var(--primary);
+        }
+
+        .pub-link-item i {
+            font-size: 0.8rem;
+        }
+
+        .pub-link-item:disabled {
+            opacity: 0.65;
+            cursor: default;
+        }
+
+        .bibtex-source {
+            display: none;
         }
 
         .stat-item {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #333;
+            gap: 0.38rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #2f3d58;
             text-decoration: none;
             transition: opacity 0.2s;
         }
 
         .stat-item:hover {
-            opacity: 0.7;
+            opacity: 0.72;
         }
 
         .stat-item i {
-            font-size: 1.1rem;
+            font-size: 1.03rem;
         }
 
         .stat-item.github i {
@@ -345,44 +555,130 @@
         }
 
         .stat-item.huggingface i {
-            color: #FFD21E;
+            color: #e7a800;
         }
 
         .stat-item .stat-number {
-            color: #667eea;
+            color: var(--primary);
+        }
+
+        .service-category {
+            margin-bottom: 1.05rem;
+            padding: 0.95rem;
+            background: #fffaf6;
+            border: 1px solid #f2dfd0;
+            border-radius: 10px;
+        }
+
+        .service-category h3 {
+            font-size: 1rem;
+            color: #2a3a54;
+            margin-bottom: 0.35rem;
+        }
+
+        .news-list {
+            margin-top: 0.5rem;
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 0.5rem 1rem;
+            padding: 0.58rem 0;
+            border-bottom: 1px solid #f5e6d8;
+            align-items: start;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.83rem;
+            color: #9aa5b8;
+            font-weight: 500;
+            padding-top: 0.15rem;
+            white-space: nowrap;
+        }
+
+        .news-pinned-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #c2410c;
+            background: #fff0e4;
+            border: 1px solid #f8d9bf;
+            border-radius: 999px;
+            padding: 0.12rem 0.48rem;
+        }
+
+        .news-content {
+            font-size: 0.95rem;
+            color: #3e4b61;
+            line-height: 1.65;
+        }
+
+        .news-content a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .news-content a:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        .news-content strong {
             font-weight: 700;
         }
 
-        .pub-meta {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .pub-year {
+        .news-more-btn {
+            margin-top: 0.85rem;
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            color: #777;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.88rem;
+            color: var(--primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font: inherit;
+            font-weight: 600;
+            padding: 0;
+            transition: opacity 0.2s;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .main-content {
-                grid-template-columns: 1fr;
+        .news-more-btn:hover {
+            opacity: 0.75;
+        }
+
+        .news-extra {
+            display: none;
+        }
+
+        .news-extra.open {
+            display: contents;
+        }
+
+        .service-list {
+            font-size: 0.96rem;
+            color: #55637b;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+                padding: 1.8rem 0 1.5rem;
             }
 
-            .sidebar {
-                position: relative;
-                top: 0;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
+            .profile-name {
+                font-size: 1.55rem;
             }
 
             .publication-item {
@@ -391,101 +687,138 @@
 
             .pub-thumbnail {
                 width: 100%;
-                height: 200px;
+                height: 210px;
             }
-        }
 
-        @media (max-width: 768px) {
             .logo {
-                font-size: 1.2rem;
+                font-size: 1.08rem;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
             }
 
             .nav-links {
                 flex-wrap: wrap;
-                gap: 0.5rem;
+                gap: 0.4rem;
             }
 
-            .content {
-                padding: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .pub-header {
-                flex-direction: column;
-            }
-
-            .pub-badge {
-                align-self: flex-start;
+            .section {
+                padding: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="top-bars" aria-hidden="true">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+    </div>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">Zhen Li's Homepage</div>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#services">Services</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <div class="main-content">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="profile-section">
-                    <h1 class="name">Zhen Li (李振)</h1>
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar"><img src="images/photo.JPG" alt="Zhen Li"></div>
+            <div class="profile-info">
+                <h1 class="profile-name">Hi! I'm <strong>Zhen Li</strong> <span class="name-cn">(李振)</span></h1>
+                <p class="profile-subtitle">Associate Professor @ <a href="https://scs.tju.edu.cn/" target="_blank">Tianjin University</a></p>
+                <p class="profile-subtitle">副研究员 (副教授) @ <a href="https://scs.tju.edu.cn/" target="_blank">天津大学</a></p>
+                <p class="profile-areas">Data Visualization / Explainable Artificial Intelligence</p>
+                <div class="profile-links">
+                    <a href="mailto:zhenl@tju.edu.cn" class="profile-link" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://zhen-li.work/" target="_blank" class="profile-link" title="Homepage"><i class="fas fa-globe"></i></a>
+                    <a href="https://scholar.google.com/citations?user=E2Yv1YcAAAAJ&hl=en" target="_blank" class="profile-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <span class="profile-link" style="cursor:default;" title="天津大学北洋园校区55号教学楼A201"><i class="fas fa-location-dot"></i></span>
                 </div>
-                <div class="contact-info">
-                    <a href="mailto:thu.lz@outlook.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>thu.lz@outlook.com</span>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=E2Yv1YcAAAAJ&hl=en" target="_blank" class="contact-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Google Scholar</span>
-                    </a>
-                </div>
-            </aside>
+            </div>
+        </div>
 
-            <!-- Main Content -->
-            <main class="content">
+        <!-- Main Content -->
+        <main class="content">
+                <section id="news" class="section">
+                    <h2 class="section-title">News</h2>
+                    <div class="news-list">
+
+                        <div class="news-item">
+                            <div class="news-date"><span class="news-pinned-tag">📌 Pinned</span></div>
+                            <div class="news-content">I am actively recruiting <strong>Master's students</strong> and welcome <strong>research collaborations</strong>. Feel free to reach out!</div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-date">2026.4</div>
+                            <div class="news-content">I'm attending <strong>IEEE PacificVIS</strong> in Sydney, Australia. 🇦🇺</div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-date">2026.2</div>
+                            <div class="news-content">I joined the <a href="https://cs.tju.edu.cn/" target="_blank">School of Computer Software</a>, <strong>Tianjin University</strong> as an Associate Research Fellow (Associate Professor). 🎓</div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-date">2026.2</div>
+                            <div class="news-content">Our paper <a href="https://arxiv.org/abs/2505.18668" target="_blank">ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation</a> received a <strong>Conditional Accept</strong> at <strong>ICLR 2026</strong> (only 15 such papers 🐶)! 🎉</div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-date">2025.12</div>
+                            <div class="news-content">Our paper <a href="https://ieeexplore.ieee.org/abstract/document/10787151" target="_blank">BiasField: Interactive Bias Probing of Machine Learning Datasets</a> got accepted by <strong>IEEE PacificVis (TVCG track) 2025</strong>.</div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-date">2025.11</div>
+                            <div class="news-content">I successfully passed my <strong>PhD defense</strong> and received my doctoral degree from <strong>Tsinghua University</strong>. 🎓</div>
+                        </div>
+
+                    </div>
+                </section>
+
                 <section id="about" class="section">
                     <h2 class="section-title">About Me</h2>
                     <p class="intro-text">
-                        Hi, I am Zhen Li (李振). I am currently an Associate Research Fellow at <a href="https://www.tju.edu.cn/" target="_blank">Tianjin University</a> (Feb. 2026–).
+                        I am currently an Associate Professor at <a href="https://scs.tju.edu.cn/" target="_blank">Tianjin University</a> (Feb. 2026–).
                         I received my Ph.D. degree in Software Engineering from <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a> (Nov. 2025),
-                        under the supervision of <a href="http://shixialiu.com/" target="_blank">Prof. Shixia Liu</a> and <a href="https://www.tsinghua.edu.cn/" target="_blank">Prof. Hui Zhang</a>.
+                        under the supervision of <a href="http://shixialiu.com/" target="_blank">Prof. Shixia Liu（刘世霞）</a> and <a href="https://www.tsinghua.edu.cn/" target="_blank">Prof. Hui Zhang（张慧）</a>.
                         Prior to that, I received my M.Phil. degree from the CSE Department at
                         <a href="https://hkust.edu.hk/" target="_blank">HKUST</a> (2018),
-                        under the supervision of <a href="http://huamin.org/" target="_blank">Prof. Huamin Qu</a>.
+                        under the supervision of <a href="http://huamin.org/" target="_blank">Prof. Huamin Qu（屈华民）</a>.
                         I obtained my Bachelor's degree from the Department of Computer Science at Tsinghua University (2016).
                     </p>
-                    <p class="intro-text">
-                        My research primarily focuses on the intersections between <span class="highlight">visual analysis and machine learning</span>. 
-                        Specifically, my work spans two complementary directions:
+                    <p class="chinese-intro">
+                        我的研究聚焦于<strong>人机智能</strong>，关注可视分析与机器学习的交叉与协同。
+                        一方面，我研究<strong>面向可解释AI的可视分析</strong>，通过交互式可视化揭示机器学习模型的内部机理；
+                        另一方面，我结合领域知识引导，探索<strong>大模型驱动的智能可视分析</strong>。
+                        我的工作连接“看见 AI”与“赋能 AI”，以推动更透明、可靠、以人为中心的智能系统。
                     </p>
                     <p class="intro-text">
-                        <strong>VIS4AI</strong>: I develop visual analytics methods for understanding machine learning models with different architectures and their training data biases.
-                        Through interactive visualizations, I enable effective identification and mitigation of both model representation issues and data biases, thereby enhancing model performance and fairness.
-                    </p>
-                    <p class="intro-text">
-                        <strong>Intelligent Data Synthesis</strong>: I address the challenge that large model development is constrained by the scarcity of high-quality,
-                        domain-specific data, particularly for complex infographic charts where data is difficult and costly to obtain.
-                        I propose a synthesis framework that uses multi-agent collaboration and knowledge guidance to generate high-quality data at scale.
+                        My research focuses on <strong>Human-Computer Intelligence</strong> at the intersection of visual analytics and machine learning.
+                        It spans two complementary directions:
+                        <strong>Visual Analytics for AI</strong>, where I develop interactive methods to reveal the internal mechanisms of machine learning models;
+                        and <strong>Intelligent Visual Analytics</strong>, where I explore visual analytics methods powered by large models and guided by domain knowledge.
+                        My work connects “seeing AI” and “empowering AI”, aiming to make AI systems more transparent, reliable, and useful.
                     </p>
                 </section>
 
                 <section id="publications" class="section">
-                    <h2 class="section-title">Publications</h2>
-                    
+                    <div class="section-title-row">
+                        <h2 class="section-title">Selected Publications</h2>
+                        <button class="pub-toggle-btn" id="pubToggleBtn">(Full list)</button>
+                    </div>
+
                     <div class="publications-list">
                         <!-- 2025 -->
                         <div class="publication-item">
@@ -493,33 +826,38 @@
                                 <img src="images/chartgalaxy.png" alt="ChartGalaxy">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://arxiv.org/abs/2505.18668" target="_blank">
-                                            ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">ICLR 2026</span>
+                                <div class="pub-title">
+                                    <a href="https://arxiv.org/abs/2505.18668" target="_blank">
+                                        ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     <span class="me">Zhen Li</span>, Duan Li, Yukai Guo, Xinyuan Guo, Bowen Li, Lanxi Xiao, Shenyu Qiao, Jiashu Chen, Zijian Wu, Hui Zhang, Xinhuan Shu, Shixia Liu
                                 </div>
-                                <div class="pub-venue">arXiv preprint arXiv:2505.18668 (Conditional Accept by ICLR 2026)</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">ICLR 2026</span>
+                                    <span class="pub-venue">Conditional Accept by ICLR 2026</span>
+                                </div>
                                 <div class="pub-description">
-                                    By generalizing chart types, variants, and layout templates, we synthesize high-quality infographic data in a programmatic manner, 
-                                    which enhances multimodal models' capabilities. The dataset has gained widespread attention in the open-source community:
-                                    <div class="pub-stats">
-                                        <a href="https://github.com/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item github">
-                                            <i class="fab fa-github"></i>
-                                            <span class="stat-number">228</span>
-                                            <span>Stars</span>
-                                        </a>
-                                        <a href="https://huggingface.co/datasets/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item huggingface">
-                                            <i class="fas fa-face-smile"></i>
-                                            <span class="stat-number">8,500+</span>
-                                            <span>Downloads</span>
-                                        </a>
-                                    </div>
+                                    By generalizing chart types, variants, and layout templates, we synthesize high-quality infographic data in a programmatic manner,
+                                    which enhances multimodal models' capabilities.
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/2505.18668" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-sep">|</span>
+                                    <a href="https://github.com/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item github"><i class="fab fa-github"></i> <span class="stat-number">228</span> Stars</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <a href="https://huggingface.co/datasets/ChartGalaxy/ChartGalaxy" target="_blank" class="stat-item huggingface"><i class="fas fa-face-smile"></i> <span class="stat-number">20,000+</span> Downloads</a>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@article{li2026chartgalaxy,
+  title={Chartgalaxy: A dataset for infographic chart understanding and generation},
+  author={Li, Zhen and Li, Duan and Guo, Yukai and Guo, Xinyuan and Li, Bowen and Xiao, Lanxi and Qiao, Shenyu and Chen, Jiashu and Wu, Zijian and Zhang, Hui and others},
+  journal={International Conference on Learning Representations},
+  year={2026}
+}</pre>
                                 </div>
                             </div>
                         </div>
@@ -530,16 +868,16 @@
                                 <img src="images/biasfield.png" alt="BiasField">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        BiasField: Interactive Bias Probing of Machine Learning Datasets
-                                    </div>
-                                    <span class="pub-badge">TVCG 2026</span>
+                                <div class="pub-title">
+                                    BiasField: Interactive Bias Probing of Machine Learning Datasets
                                 </div>
                                 <div class="pub-authors">
                                     <span class="me">Zhen Li</span>, Weikai Yang, Xinhuan Shu, Jiangning Zhu, Hui Zhang, Shixia Liu
                                 </div>
-                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics (Accepted by PacificVis 2026 Journal Track)</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">TVCG 2026</span>
+                                    <span class="pub-venue">IEEE Transactions on Visualization and Computer Graphics (Accepted by PacificVis 2026 Journal Track)</span>
+                                </div>
                             </div>
                         </div>
 
@@ -549,18 +887,35 @@
                                 <img src="images/ruleexplorer.png" alt="RuleExplorer">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/10787151" target="_blank">
-                                            RuleExplorer: A Scalable Matrix Visualization for Understanding Tree Ensemble Classifiers
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">TVCG 2024</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/10787151" target="_blank">
+                                        RuleExplorer: A Scalable Matrix Visualization for Understanding Tree Ensemble Classifiers
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     <span class="me">Zhen Li</span>, Weikai Yang, Jun Yuan, Jing Wu, Changjian Chen, Yao Ming, Fan Yang, Hui Zhang, Shixia Liu
                                 </div>
-                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 31 (9), 6370-6384</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">TVCG 2024</span>
+                                    <span class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 31 (9), 6370-6384</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/2409.03164" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@article{li2024ruleexplorer,
+  title={Ruleexplorer: A scalable matrix visualization for understanding tree ensemble classifiers},
+  author={Li, Zhen and Yang, Weikai and Yuan, Jun and Wu, Jing and Chen, Changjian and Ming, Yao and Yang, Fan and Zhang, Hui and Liu, Shixia},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={31},
+  number={9},
+  pages={6370--6384},
+  year={2024},
+  publisher={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
@@ -570,123 +925,215 @@
                                 <img src="images/nlpvis.jpg" alt="NLP Vis">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/9801603" target="_blank">
-                                            A Unified Understanding of Deep NLP Models for Text Classification
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">TVCG 2022</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/9801603" target="_blank">
+                                        A Unified Understanding of Deep NLP Models for Text Classification
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     <span class="me">Zhen Li</span>, Xiting Wang, Weikai Yang, Jing Wu, Zhengyan Zhang, Zhiyuan Liu, Maosong Sun, Hui Zhang, Shixia Liu
                                 </div>
-                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 28 (12), 4980-4994</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">TVCG 2022</span>
+                                    <span class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 28 (12), 4980-4994</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/2206.09355" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@article{li2022unified,
+  title={A unified understanding of deep nlp models for text classification},
+  author={Li, Zhen and Wang, Xiting and Yang, Weikai and Wu, Jing and Zhang, Zhengyan and Liu, Zhiyuan and Sun, Maosong and Zhang, Hui and Liu, Shixia},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={28},
+  number={12},
+  pages={4980--4994},
+  year={2022},
+  publisher={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
                         <!-- 2020 -->
-                        <div class="publication-item">
+                        <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
                                 <img src="images/conceptdrift.jpg" alt="Concept Drift">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/9308631" target="_blank">
-                                            Diagnosing Concept Drift with Visual Analytics
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">VIS 2020</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/9308631" target="_blank">
+                                        Diagnosing Concept Drift with Visual Analytics
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     Weikai Yang, <span class="me">Zhen Li</span>, Mengchen Liu, Yafeng Lu, Kelei Cao, Ross Maciejewski, Shixia Liu
                                 </div>
-                                <div class="pub-venue">IEEE Conference on Visual Analytics Science and Technology (VAST), 12-23</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">VIS 2020</span>
+                                    <span class="pub-venue">IEEE Conference on Visual Analytics Science and Technology (VAST), 12-23</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/2007.14372" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@inproceedings{yang2020diagnosing,
+  title={Diagnosing concept drift with visual analytics},
+  author={Yang, Weikai and Li, Zhen and Liu, Mengchen and Lu, Yafeng and Cao, Kelei and Maciejewski, Ross and Liu, Shixia},
+  booktitle={2020 IEEE conference on visual analytics science and technology (VAST)},
+  pages={12--23},
+  year={2020},
+  organization={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
                         <!-- 2019 -->
-                        <div class="publication-item">
+                        <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
                                 <img src="images/slideshow.gif" alt="Narrative Slideshows">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/8781568" target="_blank">
-                                            Designing Narrative Slideshows for Learning Analytics
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">PacificVis 2019</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/8781568" target="_blank">
+                                        Designing Narrative Slideshows for Learning Analytics
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     Qing Chen, <span class="me">Zhen Li</span>, Ting-Chuen Pong, Huamin Qu
                                 </div>
-                                <div class="pub-venue">IEEE Pacific Visualization Symposium (PacificVis), 237-246</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">PacificVis 2019</span>
+                                    <span class="pub-venue">IEEE Pacific Visualization Symposium (PacificVis), 237-246</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@inproceedings{chen2019designing,
+  title={Designing narrative slideshows for learning analytics},
+  author={Chen, Qing and Li, Zhen and Pong, Ting-Chuen and Qu, Huamin},
+  booktitle={2019 IEEE pacific visualization symposium (PacificVis)},
+  pages={237--246},
+  year={2019},
+  organization={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
                         <!-- 2018 -->
-                        <div class="publication-item">
+                        <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
                                 <img src="images/narvis.gif" alt="NarVis">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/8444072" target="_blank">
-                                            NarVis: Authoring Narrative Slideshows for Introducing Data Visualization Designs
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">VIS 2018</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/8444072" target="_blank">
+                                        NarVis: Authoring Narrative Slideshows for Introducing Data Visualization Designs
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     Qianwen Wang, <span class="me">Zhen Li</span>, Siwei Fu, Weiwei Cui, Huamin Qu
                                 </div>
-                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 25 (1), 779-788</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">VIS 2018</span>
+                                    <span class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 25 (1), 779-788</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/1907.05609" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@article{wang2018narvis,
+  title={Narvis: Authoring narrative slideshows for introducing data visualization designs},
+  author={Wang, Qianwen and Li, Zhen and Fu, Siwei and Cui, Weiwei and Qu, Huamin},
+  journal={IEEE transactions on visualization and computer graphics},
+  volume={25},
+  number={1},
+  pages={779--788},
+  year={2018},
+  publisher={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
                         <!-- 2017 -->
-                        <div class="publication-item">
+                        <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
                                 <img src="images/rnnvis.gif" alt="RNN Vis">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/8585721" target="_blank">
-                                            Understanding Hidden Memories of Recurrent Neural Networks
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">VIS 2017</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/8585721" target="_blank">
+                                        Understanding Hidden Memories of Recurrent Neural Networks
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     Yao Ming, Shaozu Cao, Ruixiang Zhang, <span class="me">Zhen Li</span>, Yuanzhe Chen, Yangqiu Song, Huamin Qu
                                 </div>
-                                <div class="pub-venue">IEEE Conference on Visual Analytics Science and Technology (VAST), 13-24</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">VIS 2017</span>
+                                    <span class="pub-venue">IEEE Conference on Visual Analytics Science and Technology (VAST), 13-24</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@inproceedings{ming2017understanding,
+  title={Understanding hidden memories of recurrent neural networks},
+  author={Ming, Yao and Cao, Shaozu and Zhang, Ruixiang and Li, Zhen and Chen, Yuanzhe and Song, Yangqiu and Qu, Huamin},
+  booktitle={2017 IEEE conference on visual analytics science and technology (VAST)},
+  pages={13--24},
+  year={2017},
+  organization={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
 
                         <!-- 2016 -->
-                        <div class="publication-item">
+                        <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
                                 <img src="images/cnnvis.jpg" alt="CNN Vis">
                             </div>
                             <div class="pub-content">
-                                <div class="pub-header">
-                                    <div class="pub-title">
-                                        <a href="https://ieeexplore.ieee.org/abstract/document/7536654" target="_blank">
-                                            Towards Better Analysis of Deep Convolutional Neural Networks
-                                        </a>
-                                    </div>
-                                    <span class="pub-badge">VIS 2016</span>
+                                <div class="pub-title">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/7536654" target="_blank">
+                                        Towards Better Analysis of Deep Convolutional Neural Networks
+                                    </a>
                                 </div>
                                 <div class="pub-authors">
                                     Mengchen Liu, Jiaxin Shi, <span class="me">Zhen Li</span>, Chongxuan Li, Jun Zhu, Shixia Liu
                                 </div>
-                                <div class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 23 (1), 91-100</div>
+                                <div class="pub-venue-line">
+                                    <span class="pub-badge">VIS 2016</span>
+                                    <span class="pub-venue">IEEE Transactions on Visualization and Computer Graphics 23 (1), 91-100</span>
+                                </div>
+                                <div class="pub-links">
+                                    <span class="pub-links-bracket">[</span>
+                                    <a href="https://arxiv.org/abs/1604.07043" target="_blank" class="pub-link-item"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <span class="pub-links-sep">|</span>
+                                    <button type="button" class="pub-link-item copy-bibtex-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+                                    <span class="pub-links-bracket">]</span>
+<pre class="bibtex-source">@article{liu2016towards,
+  title={Towards better analysis of deep convolutional neural networks},
+  author={Liu, Mengchen and Shi, Jiaxin and Li, Zhen and Li, Chongxuan and Zhu, Jun and Liu, Shixia},
+  journal={IEEE transactions on visualization and computer graphics},
+  volume={23},
+  number={1},
+  pages={91--100},
+  year={2016},
+  publisher={IEEE}
+}</pre>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -698,7 +1145,7 @@
                     <div class="service-category">
                         <h3><i class="fas fa-journal-whills"></i> Journal Reviewer</h3>
                         <p class="service-list">
-                            Information Visualization, Visual Informatics
+                            IEEE TVCG, Information Visualization, Visual Informatics
                         </p>
                     </div>
 
@@ -709,9 +1156,42 @@
                         </p>
                     </div>
                 </section>
-            </main>
-        </div>
+        </main>
     </div>
+    <script>
+        const pubToggleBtn = document.getElementById('pubToggleBtn');
+        let showingAll = false;
+        pubToggleBtn.addEventListener('click', () => {
+            showingAll = !showingAll;
+            document.querySelectorAll('.pub-other').forEach(el => {
+                el.style.display = showingAll ? 'flex' : 'none';
+            });
+            pubToggleBtn.textContent = showingAll ? '(Selected only)' : '(Full list)';
+        });
+
+        document.querySelectorAll('.copy-bibtex-btn').forEach((button) => {
+            button.addEventListener('click', async () => {
+                const source = button.parentElement.querySelector('.bibtex-source');
+                if (!source) return;
+                const bibtex = source.textContent.trim();
+                try {
+                    await navigator.clipboard.writeText(bibtex);
+                } catch {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = bibtex;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                }
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                button.disabled = true;
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-quote-right"></i> BibTeX';
+                    button.disabled = false;
+                }, 1400);
+            });
+        });
+    </script>
 </body>
 </html>
-
