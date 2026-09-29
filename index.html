@@ -5,724 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhen Li's Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
-        :root {
-            --bg: #fff8f3;
-            --surface: #ffffff;
-            --surface-2: #fff7ef;
-            --text: #2a2a2a;
-            --muted: #666a73;
-            --primary: #F97316;
-            --primary-soft: #fff1e7;
-            --border: #f2dfd0;
-            --shadow: 0 4px 12px rgba(185, 75, 11, 0.08);
-            --radius: 16px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.64;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        .container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .top-bars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1002;
-        }
-
-        .top-bars .bar-1 {
-            height: 8px;
-            background: #ea580c;
-        }
-
-        .top-bars .bar-2 {
-            height: 8px;
-            background: #fff7ed;
-        }
-
-        header {
-            position: sticky;
-            top: 16px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.95rem 0;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2e3138;
-            letter-spacing: 0.01em;
-            font-family: "Alegreya", Georgia, "Times New Roman", serif;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 0.96rem;
-            font-weight: 500;
-            padding: 0.45rem 0.75rem;
-            border-radius: 999px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-            background: var(--primary-soft);
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2.5rem 0 2rem;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 1.8rem;
-        }
-
-        .profile-avatar {
-            flex-shrink: 0;
-            width: 108px;
-            height: 108px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #f8d9bf;
-        }
-
-        .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .profile-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .profile-name {
-            font-size: 1.95rem;
-            font-weight: 400;
-            color: #2a2e38;
-            margin-bottom: 0.28rem;
-            font-family: "Alegreya", Georgia, "Times New Roman", serif;
-            line-height: 1.2;
-        }
-
-        .profile-name strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .name-cn {
-            font-size: 1.1rem;
-            color: #8a9ab5;
-            font-weight: 400;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .profile-subtitle {
-            font-size: 1rem;
-            color: #4a5568;
-            margin-bottom: 0.22rem;
-        }
-
-        .profile-subtitle a {
-            color: #4a5568;
-            text-decoration: none;
-            border-bottom: 1px dotted #a4aab5;
-        }
-
-        .profile-subtitle a:hover {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        .profile-areas {
-            font-size: 0.93rem;
-            color: #6a7487;
-            margin-bottom: 0.7rem;
-        }
-
-        .profile-links {
-            display: flex;
-            gap: 0.45rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .profile-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #fff0e4;
-            border: 1px solid #f8d9bf;
-            color: #c2410c;
-            text-decoration: none;
-            font-size: 0.88rem;
-            transition: all 0.2s;
-        }
-
-        .profile-link:hover {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-
-        .content {
-            background: transparent;
-            margin-bottom: 2.5rem;
-        }
-
-        .section {
-            background: var(--surface);
-            margin-bottom: 1.4rem;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .hero {
-            background: linear-gradient(160deg, #fff8f2 0%, #fff2e8 100%);
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            line-height: 1.25;
-            margin-bottom: 0.9rem;
-            color: #2b2b2b;
-            font-family: "Alegreya", Georgia, "Times New Roman", serif;
-        }
-
-        .hero p {
-            font-size: 1.04rem;
-            color: #555a63;
-            max-width: 840px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-top: 1.2rem;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 700;
-            padding: 0.56rem 0.9rem;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .button.primary {
-            color: #fff;
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .button.primary:hover {
-            background: #ea580c;
-        }
-
-        .button.ghost {
-            color: var(--primary);
-            background: var(--primary-soft);
-            border-color: #f7d6ba;
-        }
-
-        .button.ghost:hover {
-            background: #ffe5d1;
-        }
-
-        .section-title-row {
-            display: flex;
-            align-items: baseline;
-            gap: 0.55rem;
-            margin-bottom: 1.1rem;
-        }
-
-        .section-title {
-            font-size: 1.55rem;
-            color: #2b2e35;
-            margin-bottom: 1.1rem;
-            font-weight: 700;
-            font-family: "Alegreya", Georgia, "Times New Roman", serif;
-            display: inline-block;
-            position: relative;
-            z-index: 0;
-        }
-
-        .section-title-row .section-title {
-            margin-bottom: 0;
-        }
-
-        .pub-toggle-btn {
-            font-size: 0.85rem;
-            color: #8a9ab5;
-            font-weight: 500;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            cursor: pointer;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            background: none;
-            border: none;
-            padding: 0;
-            transition: color 0.2s;
-        }
-
-        .pub-toggle-btn:hover {
-            color: var(--primary);
-        }
-
-        .pub-other {
-            display: flex;
-        }
-
-        #pubToggleBtn {
-            display: none;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0.18rem;
-            height: 0.5em;
-            background: #ffe1c7;
-            border-radius: 0.5em;
-            z-index: -1;
-        }
-
-        .intro-text {
-            font-size: 1.02rem;
-            color: #3e4b61;
-            margin-bottom: 1rem;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .intro-text a {
-            color: #404551;
-            text-decoration: none;
-            border-bottom: 1px dotted #a4aab5;
-        }
-
-        .intro-text a:hover {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        .intro-text strong,
-        .chinese-intro strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .chinese-intro {
-            font-size: 0.98rem;
-            color: #41506a;
-            margin-bottom: 1rem;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .highlight {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .publications-list {
-            margin-top: 0.6rem;
-        }
-
-        .publication-item {
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            background: #fffdfa;
-            border: 1px solid #f2dfd0;
-            border-radius: 12px;
-            display: flex;
-            gap: 1rem;
-            transition: border-color 0.2s ease;
-        }
-
-        .publication-item:hover {
-            border-color: #efcdb2;
-        }
-
-        .pub-thumbnail {
-            flex-shrink: 0;
-            width: 175px;
-            height: 118px;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #fff;
-            border: 1px solid #f2dfd0;
-        }
-
-        .pub-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .pub-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .pub-badge {
-            flex-shrink: 0;
-            padding: 0.18rem 0.52rem;
-            background: #ffe4d0;
-            color: #c2410c;
-            border-radius: 999px;
-            font-size: 0.73rem;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .pub-title {
-            font-size: 1.04rem;
-            color: #303643;
-            font-weight: 700;
-            line-height: 1.35;
-            flex: 1;
-        }
-
-        .pub-title a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .pub-title a:hover {
-            color: #ea580c;
-        }
-
-        .pub-authors {
-            font-size: 0.9rem;
-            color: #59657a;
-            margin-bottom: 0.25rem;
-            line-height: 1.45;
-        }
-
-        .pub-authors .me {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .pub-venue-line {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            margin-bottom: 0.25rem;
-            flex-wrap: wrap;
-        }
-
-        .pub-venue {
-            font-size: 0.85rem;
-            color: #6a7487;
-            font-style: italic;
-        }
-
-        .pub-description {
-            font-size: 0.9rem;
-            color: #5a667d;
-            line-height: 1.6;
-            margin-top: 0.45rem;
-            padding-top: 0.45rem;
-            border-top: 1px solid #e2e9f7;
-        }
-
-        .pub-links {
-            margin-top: 0.55rem;
-            display: flex;
-            align-items: center;
-            font-size: 0.88rem;
-            color: #9aa5b8;
-            flex-wrap: wrap;
-        }
-
-        .pub-links-bracket {
-            color: #9aa5b8;
-        }
-
-        .pub-links-sep {
-            color: #9aa5b8;
-            margin: 0 0.35rem;
-        }
-
-        .pub-link-item {
-            color: #4a5a72;
-            text-decoration: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font: inherit;
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.22rem;
-            transition: color 0.2s;
-        }
-
-        .pub-link-item:hover {
-            color: var(--primary);
-        }
-
-        .pub-link-item i {
-            font-size: 0.8rem;
-        }
-
-        .pub-link-item:disabled {
-            opacity: 0.65;
-            cursor: default;
-        }
-
-        .bibtex-source {
-            display: none;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.38rem;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #2f3d58;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .stat-item:hover {
-            opacity: 0.72;
-        }
-
-        .stat-item i {
-            font-size: 1.03rem;
-        }
-
-        .stat-item.github i {
-            color: #181717;
-        }
-
-        .stat-item.huggingface i {
-            color: #e7a800;
-        }
-
-        .stat-item .stat-number {
-            color: var(--primary);
-        }
-
-        .service-category {
-            margin-bottom: 1.05rem;
-            padding: 0.95rem;
-            background: #fffaf6;
-            border: 1px solid #f2dfd0;
-            border-radius: 10px;
-        }
-
-        .service-category h3 {
-            font-size: 1rem;
-            color: #2a3a54;
-            margin-bottom: 0.35rem;
-        }
-
-        .news-list {
-            margin-top: 0.5rem;
-        }
-
-        .news-item {
-            display: grid;
-            grid-template-columns: 72px 1fr;
-            gap: 0.5rem 1rem;
-            padding: 0.58rem 0;
-            border-bottom: 1px solid #f5e6d8;
-            align-items: start;
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-        }
-
-        .news-date {
-            font-size: 0.83rem;
-            color: #9aa5b8;
-            font-weight: 500;
-            padding-top: 0.15rem;
-            white-space: nowrap;
-        }
-
-        .news-pinned-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #c2410c;
-            background: #fff0e4;
-            border: 1px solid #f8d9bf;
-            border-radius: 999px;
-            padding: 0.12rem 0.48rem;
-        }
-
-        .news-content {
-            font-size: 0.95rem;
-            color: #3e4b61;
-            line-height: 1.65;
-        }
-
-        .news-content a {
-            color: var(--primary);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-
-        .news-content a:hover {
-            border-bottom-color: var(--primary);
-        }
-
-        .news-content strong {
-            font-weight: 700;
-        }
-
-        .news-more-btn {
-            margin-top: 0.85rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.88rem;
-            color: var(--primary);
-            cursor: pointer;
-            background: none;
-            border: none;
-            font: inherit;
-            font-weight: 600;
-            padding: 0;
-            transition: opacity 0.2s;
-        }
-
-        .news-more-btn:hover {
-            opacity: 0.75;
-        }
-
-        .news-extra {
-            display: none;
-        }
-
-        .news-extra.open {
-            display: contents;
-        }
-
-        .service-list {
-            font-size: 0.96rem;
-            color: #55637b;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 768px) {
-            .profile-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.2rem;
-                padding: 1.8rem 0 1.5rem;
-            }
-
-            .profile-name {
-                font-size: 1.55rem;
-            }
-
-            .publication-item {
-                flex-direction: column;
-            }
-
-            .pub-thumbnail {
-                width: 100%;
-                height: 210px;
-            }
-
-            .logo {
-                font-size: 1.08rem;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 0.4rem;
-            }
-
-            .section {
-                padding: 1.3rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="top-bars" aria-hidden="true">
-        <div class="bar-1"></div>
-        <div class="bar-2"></div>
-    </div>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="reading-progress" aria-hidden="true"></div>
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Zhen Li's Homepage</div>
+            <nav aria-label="Main navigation">
+                <a class="logo" href="#top">Zhen Li / 李振</a>
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
                     <li><a href="#news">News</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#services">Services</a></li>
                 </ul>
@@ -733,30 +27,47 @@
     <div class="container">
         <!-- Profile Header -->
         <div class="profile-header">
-            <div class="profile-avatar"><img src="images/photo.JPG" alt="Zhen Li"></div>
+            <div class="profile-avatar"><img decoding="async" width="156" height="180" src="images/photo.JPG" alt="Zhen Li"></div>
             <div class="profile-info">
+                <p class="eyebrow">Visualization · Human–AI Interaction</p>
                 <h1 class="profile-name">Hi! I'm <strong>Zhen Li</strong> <span class="name-cn">(李振)</span></h1>
                 <p class="profile-subtitle">Associate Professor @ <a href="https://scs.tju.edu.cn/" target="_blank">Tianjin University</a></p>
                 <p class="profile-subtitle">副研究员 (副教授) @ <a href="https://scs.tju.edu.cn/" target="_blank">天津大学</a></p>
-                <p class="profile-areas">Data Visualization / Explainable Artificial Intelligence</p>
+                <p class="profile-areas"><span>Data Visualization</span><span>Explainable Artificial Intelligence</span></p>
                 <div class="profile-links">
-                    <a href="mailto:zhenl@tju.edu.cn" class="profile-link" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://zhen-li.work/" target="_blank" class="profile-link" title="Homepage"><i class="fas fa-globe"></i></a>
-                    <a href="https://scholar.google.com/citations?user=E2Yv1YcAAAAJ&hl=en" target="_blank" class="profile-link" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="mailto:zhenl@tju.edu.cn" class="profile-link" title="Email" aria-label="Email Zhen Li"><i class="fas fa-envelope"></i></a>
+                    <a href="https://zhen-li.work/" target="_blank" class="profile-link" title="Homepage" aria-label="Homepage"><i class="fas fa-globe"></i></a>
+                    <a href="https://scholar.google.com/citations?user=E2Yv1YcAAAAJ&hl=en" target="_blank" class="profile-link" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     <span class="profile-link" style="cursor:default;" title="天津大学北洋园校区55号教学楼A201"><i class="fas fa-location-dot"></i></span>
                 </div>
             </div>
+            <svg class="profile-art" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+                <circle cx="150" cy="150" r="116" stroke="#d9cbb7" stroke-dasharray="2 8"/>
+                <circle cx="150" cy="150" r="80" stroke="#d9cbb7"/>
+                <path d="M34 150H266M150 34V266" stroke="#e2d8c9"/>
+                <g class="art-orbit">
+                    <path d="M65 105L185 65L238 170L129 224L65 105L238 170M185 65L129 224" stroke="#9caf98" stroke-width="1.2"/>
+                    <circle cx="65" cy="105" r="8" fill="#426b5a"/>
+                    <circle cx="185" cy="65" r="11" fill="#b54e26"/>
+                    <circle cx="238" cy="170" r="6" fill="#426b5a"/>
+                    <circle cx="129" cy="224" r="9" fill="#c5a681"/>
+                </g>
+                <circle cx="150" cy="150" r="5" fill="#b54e26"/>
+            </svg>
         </div>
 
         <!-- Main Content -->
-        <main class="content">
+        <main id="main-content" class="content">
                 <section id="news" class="section">
-                    <h2 class="section-title">News</h2>
+                    <h2 class="section-title" data-number="01">News</h2>
                     <div class="news-list">
 
-                        <div class="news-item">
-                            <div class="news-date"><span class="news-pinned-tag">📌 Pinned</span></div>
-                            <div class="news-content">I am always happy to discuss opportunities with prospective <strong>Master's students</strong> and potential <strong>research collaborators</strong>. Please feel free to get in touch.</div>
+                        <div class="news-item pinned">
+                            <div class="news-date"><span class="news-pinned-tag">OPEN POSITIONS · 招生</span></div>
+                            <div class="news-content">
+                                <p lang="zh-CN"><strong>招生：</strong>招收博士生（<strong>2027 年普博、2028 年直博</strong>）；硕士生 <strong>2027 年名额已满，2028 年欢迎联系</strong>。欢迎通过 <a href="mailto:zhenl@tju.edu.cn">zhenl@tju.edu.cn</a> 与我联系。</p>
+                                <p>I am recruiting <strong>Ph.D. students</strong> for 2027 (regular admission) and 2028 (direct entry from a bachelor's degree). <strong>Master's positions for 2027 are filled; prospective students for 2028 are welcome to get in touch.</strong> I also welcome potential research collaborators.</p>
+                            </div>
                         </div>
 
                         <div class="news-item">
@@ -771,7 +82,7 @@
 
                         <div class="news-item">
                             <div class="news-date">2026.2</div>
-                            <div class="news-content">Our paper <a href="https://arxiv.org/abs/2505.18668" target="_blank">ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation</a> received a <strong>Conditional Accept</strong> at <strong>ICLR 2026</strong> (only 15 such papers 🐶)! 🎉</div>
+                            <div class="news-content">Our paper <a href="https://arxiv.org/abs/2505.18668" target="_blank">ChartGalaxy: A Dataset for Infographic Chart Understanding and Generation</a> was <strong>accepted</strong> at <strong>ICLR 2026</strong>! 🎉</div>
                         </div>
 
                         <div class="news-item">
@@ -793,7 +104,7 @@
                 </section>
 
                 <section id="about" class="section">
-                    <h2 class="section-title">About Me</h2>
+                    <h2 class="section-title" data-number="02">About Me</h2>
                     <p class="intro-text">
                         I am currently an Associate Professor at <a href="https://scs.tju.edu.cn/" target="_blank">Tianjin University</a> (Feb. 2026–).
                         I received my Ph.D. degree in Software Engineering from <a href="https://www.tsinghua.edu.cn/" target="_blank">Tsinghua University</a> (Nov. 2025),
@@ -820,7 +131,7 @@
 
                 <section id="publications" class="section">
                     <div class="section-title-row">
-                        <h2 class="section-title">Selected Publications</h2>
+                        <h2 class="section-title" data-number="03">Selected Publications</h2>
                         <button class="pub-toggle-btn" id="pubToggleBtn">(Full list)</button>
                     </div>
 
@@ -828,7 +139,7 @@
                         <!-- 2025 -->
                         <div class="publication-item">
                             <div class="pub-thumbnail">
-                                <img src="images/chartgalaxy.png" alt="ChartGalaxy">
+                                <img loading="lazy" decoding="async" src="images/chartgalaxy.png" alt="ChartGalaxy">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -841,7 +152,7 @@
                                 </div>
                                 <div class="pub-venue-line">
                                     <span class="pub-badge">ICLR 2026</span>
-                                    <span class="pub-venue">Conditional Accept by ICLR 2026</span>
+                                    <span class="pub-venue">Accepted by ICLR 2026</span>
                                 </div>
                                 <div class="pub-description">
                                     By generalizing chart types, variants, and layout templates, we synthesize high-quality infographic data in a programmatic manner,
@@ -870,7 +181,7 @@
                         <!-- 2026 -->
                         <div class="publication-item">
                             <div class="pub-thumbnail">
-                                <img src="images/biasfield.png" alt="BiasField">
+                                <img loading="lazy" decoding="async" src="images/biasfield.png" alt="BiasField">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -889,7 +200,7 @@
                         <!-- 2024 -->
                         <div class="publication-item">
                             <div class="pub-thumbnail">
-                                <img src="images/ruleexplorer.png" alt="RuleExplorer">
+                                <img loading="lazy" decoding="async" src="images/ruleexplorer.png" alt="RuleExplorer">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -927,7 +238,7 @@
                         <!-- 2022 -->
                         <div class="publication-item">
                             <div class="pub-thumbnail">
-                                <img src="images/nlpvis.jpg" alt="NLP Vis">
+                                <img loading="lazy" decoding="async" src="images/nlpvis.jpg" alt="NLP Vis">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -965,7 +276,7 @@
                         <!-- 2020 -->
                         <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
-                                <img src="images/conceptdrift.jpg" alt="Concept Drift">
+                                <img loading="lazy" decoding="async" src="images/conceptdrift.jpg" alt="Concept Drift">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -1001,7 +312,7 @@
                         <!-- 2019 -->
                         <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
-                                <img src="images/slideshow.gif" alt="Narrative Slideshows">
+                                <img loading="lazy" decoding="async" src="images/slideshow.gif" alt="Narrative Slideshows">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -1035,7 +346,7 @@
                         <!-- 2018 -->
                         <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
-                                <img src="images/narvis.gif" alt="NarVis">
+                                <img loading="lazy" decoding="async" src="images/narvis.gif" alt="NarVis">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -1073,7 +384,7 @@
                         <!-- 2017 -->
                         <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
-                                <img src="images/rnnvis.gif" alt="RNN Vis">
+                                <img loading="lazy" decoding="async" src="images/rnnvis.gif" alt="RNN Vis">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -1107,7 +418,7 @@
                         <!-- 2016 -->
                         <div class="publication-item pub-other">
                             <div class="pub-thumbnail">
-                                <img src="images/cnnvis.jpg" alt="CNN Vis">
+                                <img loading="lazy" decoding="async" src="images/cnnvis.jpg" alt="CNN Vis">
                             </div>
                             <div class="pub-content">
                                 <div class="pub-title">
@@ -1145,24 +456,53 @@
                 </section>
 
                 <section id="services" class="section">
-                    <h2 class="section-title">Academic Services</h2>
-                    
-                    <div class="service-category">
-                        <h3><i class="fas fa-journal-whills"></i> Journal Reviewer</h3>
-                        <p class="service-list">
-                            IEEE TVCG, Information Visualization, Visual Informatics
-                        </p>
-                    </div>
+                    <h2 class="section-title" data-number="04">Academic Services</h2>
+                    <div class="services-grid">
 
-                    <div class="service-category">
-                        <h3><i class="fas fa-users"></i> Conference Reviewer</h3>
-                        <p class="service-list">
-                            IEEE VIS, ACM IUI, IEEE PacificVis (Regular and TVCG-Journal Track), ChinaVis
-                        </p>
+                        <div class="service-category">
+                            <h3><i class="fas fa-users"></i> Professional Committees</h3>
+                            <p class="service-list" lang="zh-CN">
+                                中国图形图像学会可视化专委会执行委员<br>
+                                中国计算机学会计算机辅助设计与图形学专业委员会执行委员
+                            </p>
+                        </div>
+
+                        <div class="service-category">
+                            <h3><i class="fas fa-users"></i> Conference Organization</h3>
+                            <p class="service-list">
+                                IEEE VIS 2027: Tech Chair / China Satellite Chair
+                            </p>
+                        </div>
+
+                        <div class="service-category">
+                            <h3><i class="fas fa-users"></i> Program Committee</h3>
+                            <p class="service-list">
+                                NeurIPS, ICLR, ACM IUI, IEEE VIS (Short Papers)
+                            </p>
+                        </div>
+
+                        <div class="service-category">
+                            <h3><i class="fas fa-journal-whills"></i> Journal Reviewer</h3>
+                            <p class="service-list">
+                                IEEE TVCG, Information Visualization, Visual Informatics
+                            </p>
+                        </div>
+
+                        <div class="service-category">
+                            <h3><i class="fas fa-users"></i> Conference Reviewer</h3>
+                            <p class="service-list">
+                                IEEE VIS, ACM IUI, IEEE PacificVis (Regular and TVCG-Journal Track), ChinaVis
+                            </p>
+                        </div>
                     </div>
                 </section>
         </main>
+        <footer class="site-footer">
+            <p>Zhen Li · Tianjin University <span aria-hidden="true">/</span> <a href="mailto:zhenl@tju.edu.cn">Get in touch</a></p>
+            <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </footer>
     </div>
+    <script src="effects.js" defer></script>
     <script>
         const pubToggleBtn = document.getElementById('pubToggleBtn');
         let showingAll = false;
