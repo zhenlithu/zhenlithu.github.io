@@ -114,12 +114,14 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 2
 .stat-number { color: var(--primary); }
 .bibtex-source, #pubToggleBtn { display: none; }
 
-.services-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.service-category { padding: 21px 23px; border: 1px solid var(--border); border-radius: 12px; background: #fafaf6; transition: border-color .25s, transform .25s; }
-.service-category:first-child { grid-column: 1 / -1; }
-.service-category h3 { display: flex; align-items: center; gap: 10px; font-size: .85rem; font-weight: 600; margin-bottom: 10px; }
-.service-category h3 i { color: var(--green); font-size: .85rem; }
 .service-list { font-size: .87rem; color: var(--muted); line-height: 1.9; }
+.service-row { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 20px; padding: 10px 0; }
+.service-row:first-child { padding-top: 0; }
+.service-row:last-child { padding-bottom: 0; }
+.service-row dt { font-weight: 600; color: var(--text); }
+.award-note { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); font-size: .8rem; color: var(--muted); }
+.award-note a { color: inherit; text-decoration-color: #c0c7bd; }
+.award-note a:hover { color: var(--primary); }
 .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 0 34px; color: var(--muted); font-size: .78rem; }
 .site-footer a { text-decoration: none; }
 .back-to-top { display: inline-flex; align-items: center; gap: 8px; }
@@ -127,7 +129,6 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 2
 @keyframes reveal-in { from { opacity: .2; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (hover: hover) {
     .publication-item:hover .pub-thumbnail img { transform: scale(1.04); }
-    .service-category:hover { border-color: #b4c4ae; transform: translateY(-2px); }
 }
 @media (max-width: 1050px) { .profile-art { width: 200px; right: 0; top: 65px; opacity: .25; } }
 @media (max-width: 768px) {
@@ -144,14 +145,14 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 2
     .section-title { font-size: 1.5rem; }
     .publication-item { gap: 20px; }
     .pub-thumbnail { width: 150px; height: 118px; }
-    .services-grid { grid-template-columns: 1fr; }
+    .service-row { grid-template-columns: 1fr; gap: 2px; }
 }
 @media (max-width: 540px) {
     html { scroll-padding-top: 116px; }
     .container { padding: 0 16px; }
     nav { align-items: flex-start; flex-direction: column; gap: 7px; padding: 12px 0 10px; }
     .nav-links { width: 100%; justify-content: space-between; }
-    .nav-links a { padding: 5px 9px; }
+    .nav-links a { padding: 5px 6px; font-size: .73rem; }
     .profile-header { flex-direction: column; align-items: flex-start; gap: 25px; padding: 34px 6px; }
     .profile-avatar { width: 105px; height: 124px; }
     .profile-name { font-size: 2.45rem; }
@@ -169,8 +170,6 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 2
     .publication-item { flex-direction: column; gap: 16px; }
     .pub-thumbnail { width: 100%; height: auto; aspect-ratio: 16 / 9; }
     .pub-title { font-size: 1rem; }
-    .service-category { padding: 18px; }
-    .service-category h3 { font-size: .81rem; }
     .service-list { font-size: .82rem; }
     .site-footer { align-items: flex-start; flex-direction: column; gap: 8px; padding: 0 6px 28px; }
 }
@@ -183,6 +182,6 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 2
     header, .reading-progress, .profile-art, .skip-link, .back-to-top { display: none; }
     .container { max-width: none; padding: 0; }
     .section { border: 0; padding: 20px 0; }
-    .publication-item, .service-category { break-inside: avoid; }
+    .publication-item, .service-row, .award-note { break-inside: avoid; }
     .reveal-in { animation: none; }
 }
